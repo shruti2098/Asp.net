@@ -1,0 +1,33 @@
+<div class="emp-div">
+    <button routerLink="employee/add/0" class="btn">Add Employee</button>
+
+    <h3>List of Employees</h3>
+    <style>
+        table,
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+    </style>
+
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th colspan="2">Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{ employee.id }}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.phone}}</td>
+                <td><button class="btn" [routerLink]="['employee/edit',employee.id]">Edit</button></td>
+                <td><button class="btn" (click)="onDelete(employee.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
